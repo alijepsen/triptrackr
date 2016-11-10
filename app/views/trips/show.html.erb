@@ -1,0 +1,28 @@
+<div class="container">
+<h1><%=@trip.name %> Trip</h1>
+<hr />
+
+<div>
+  <% if @trip.name %>
+    <p class="text-primary">Trip Name: <%=@trip.name %></p>
+  <% end %>
+
+  <% if @trip.from %>
+    <p class="text-info">Date From: <%=@trip.from %></p>
+  <% end %>
+
+  <% if @trip.from %>
+    <p class="text-info">Date To: <%=@trip.to %></p>
+  <% end %>
+</div>
+
+
+<br />
+
+
+<%= link_to "#{@trip.name} Locations",
+  trip_locations_path(@trip) %>
+
+<br /><br />
+<%= link_to 'See All Trips', trips_path %>
+</div>

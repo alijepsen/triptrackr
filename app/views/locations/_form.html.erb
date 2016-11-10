@@ -1,0 +1,17 @@
+<div class="container">
+<%= form_for [@trip, @location] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+  <br \><br \>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <br \><br \>
+
+
+  <%= f.submit 'Submit', class: "btn btn-info" %>
+<% end %>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="container">
+<% if @trip.errors.any? %>
+  <h3><%= pluralize(@trip.errors.count, 'Error', 'Errors') %> Creating Trip </h3>
+    <ul>
+      <% @trip.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+      <% end %>
+    </ul>
+<% end %>
+
+  <%= form_for @trip do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br /><br />
+
+
+  <%= f.label :from %>
+  <%= f.date_select :from %>
+  <br /><br />
+
+  <%= f.label :to %>
+  <%= f.date_select :to %>
+  <br /><br />
+
+  <%= f.submit 'Submit', class: "btn-success" %>
+
+  <% end %>
+</div>

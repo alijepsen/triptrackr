@@ -1,0 +1,26 @@
+<div class="container">
+<h1>TripTrackr</h1>
+
+<% if @trips.any? %>
+
+  <% @trips.each do |trip| %>
+    <div>
+
+      <h2>Name: <%= trip.name %></h2>
+      <%= link_to 'Show Trip', trip_path(trip) %>
+      <%= link_to 'Edit Trip', edit_trip_path(trip) %>
+      <%= link_to 'Delete Trip', trip_path(trip), method: :delete, data: {confirm: 'Delete trip?'} %>
+
+    </div>
+  <% end %>
+
+  <% else %>
+
+    <h3>No Trips Found, Add one!</h3>
+  <% end %>
+
+
+<br /><br/>
+<%= link_to 'Add a Trip', new_trip_path %>
+</div>
+

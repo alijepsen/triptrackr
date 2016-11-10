@@ -1,0 +1,47 @@
+<div class="container">
+<h1>Show Location: <%=@location.name %></h1>
+
+
+<div>
+  <h2><%= @location.name %></h2>
+</div>
+
+<div>
+  Description: <i><%= @location.description %></i>
+</div>
+
+<div>
+  <ul>
+    <% if @location.address.present? %>
+      <p><%= @location.address.street %>
+      <br/><%= @location.address.city %>
+      <br /><%= @location.address.state %>
+      <br /><%= @location.address.postal %></p>
+      <p>GeoCoordinates: <%= @location.address.latitude %>, <%= @location.address.longitude %></p>
+  </ul>
+<% end %>
+
+<br /><br />
+
+<div>
+  Address: <%= link_to 'Add', new_trip_location_address_path(@trip, @location) %>
+</div>
+
+
+<%= link_to("Edit", edit_trip_location_path(@trip, @location)) %> |
+<%= link_to("Delete", trip_location_path(@trip, @location), method: :delete, data: {confirm: 'Delete Location?'}) %>
+
+<hr />
+
+<%= link_to "See all of #{@trip.name.pluralize} Locations",
+  trip_locations_path(@trip) %>
+
+<br /><br/>
+<%= link_to 'Add a Location', new_trip_location_path %>
+
+<br/><br/>
+Add a photo:
+<%= form_for @location, url: trip_location_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %>
+</div>

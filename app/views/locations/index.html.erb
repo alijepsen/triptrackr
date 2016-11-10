@@ -1,0 +1,27 @@
+<div class="container">
+<h1>Locations for <%= @trip.name %></h1>
+
+  <% if @locations.any? %>
+
+    <% @locations.each do |location| %>
+    <div>
+    <%= link_to location.name, trip_location_path(@trip, location) %>
+    </div>
+
+    <div>
+    Description: <%= location.description %>
+    </div>
+
+  <% end %>
+
+  <% else %>
+
+    <h3>No Locations....add one since you went places!</h3>
+  <% end %>
+
+<br /><br/>
+<%= link_to 'Add a Location', new_trip_location_path %>
+
+<br /><br />
+</div>
+
